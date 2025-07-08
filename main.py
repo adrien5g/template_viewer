@@ -19,7 +19,7 @@ def render_template():
     env = Environment(loader=FileSystemLoader(TEMPLATES_DIR))
     template = env.get_template(TEMPLATE_TO_WATCH)
     data = load_data()
-    output = template.render(data)
+    output = template.render(object_list=[data])
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         f.write(output)
     print(f"✅ Template renderizado em: {OUTPUT_FILE}")
